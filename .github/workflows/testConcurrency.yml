@@ -1,0 +1,61 @@
+name: Deploy Workflow to test concurrency
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Add more build steps here
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Add more test steps here
+
+  deploy-staging:
+    concurrency:
+      group: deployment
+      # cancel-in-progress: f
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Deploy to Staging
+        run: |
+          # Deployment to staging steps
+          
+          echo "Deploying to staging environment"
+          sleep 120
+
+  deploy-production:
+    concurrency:
+      group: deployment
+      # cancel-in-progress: true
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Deploy to Production
+        run: |
+          # Deployment to production steps
+          echo "Deploying to production environment"
+          sleep 120

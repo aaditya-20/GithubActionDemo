@@ -15,4 +15,4 @@ jobs:
         with:
           node-version: '14'
       - run: sleep 120
-      - run: bats -v
+      # - run: bats -v

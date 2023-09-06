@@ -1,6 +1,10 @@
 name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions second time 🚀
-# on: [push]
+on:
+   pull_request:
+               branches:
+                   - 'test'
+   workflow_call:
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
@@ -15,4 +19,5 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
-      - run: echo "🍏 This change1 job's status is ${{ job.status }}."
+        
+      - run: sleep 120

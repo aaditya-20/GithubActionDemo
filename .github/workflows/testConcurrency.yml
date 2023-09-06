@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    uses: aaditya-20/GithubActionDemo/edit/main/.github/workflows/FirstOne.yml@main 
+    uses: aaditya-20/GithubActionDemo/.github/workflows/FirstOne.yml@main 
     # steps:
     #   - name: Checkout code
     #     uses: actions/checkout@v2

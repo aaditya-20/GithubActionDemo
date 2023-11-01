@@ -1,2 +1,2 @@
 # GithubActionDemo let see what happen to jobn let see
-let see readme
+added [skip ci] to commit message

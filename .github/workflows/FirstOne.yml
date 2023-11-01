@@ -1,10 +1,10 @@
 name: learn-github-actions
-run-name: ${{ github.actor }} is learning GitHub Actions
+run-name: ${{ github.actor }} is learning GitHub Actions test gha commit
 on:
    pull_request:
-               branches:
-                   - 'test'
-   workflow_call:
+      paths-ignore:
+         - '**/README.md'
+               
 
 jobs:
   check-bats-version:
@@ -14,5 +14,5 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '14'
-      - run: sleep 120
+      - run: sleep 10
       # - run: bats -v
